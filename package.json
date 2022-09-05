@@ -1,0 +1,24 @@
+{
+	"name": "encrypted-chat",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"start": "node ./server",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/adapter-node": "^1.0.0-next.88",
+		"@sveltejs/kit": "next",
+		"svelte": "^3.44.0",
+		"vite": "^3.1.0-beta.1"
+	},
+	"type": "module",
+	"dependencies": {
+		"express": "^4.18.1",
+		"socket.io": "^4.5.2",
+		"socket.io-client": "^4.5.2"
+	}
+}
