@@ -1,11 +1,19 @@
 <script>
-    import { io } from "socket.io-client";
+    import { onMount } from 'svelte';
+    import { io } from 'socket.io-client';
     const socket = io();
 
     let user, username, msgDraft, messages = [];
 
+    onMount(() => { user = localStorage.user; })
+
     function login() {
         user = username;
+        localStorage.user = user;
+    }
+
+    function logout() {
+        user = undefined;
     }
 
     function sendMessage() {
@@ -21,6 +29,7 @@
 
 <main>
     {#if user}
+        <span>{user}</span><button on:click={logout}>Logout</button>
         <ul>
             {#each messages as msg}
                 <li><div>{msg.user} at {msg.time}</div><div>{msg.text}</div></li>
